@@ -1,0 +1,34 @@
+name: doc2vec_training
+
+# Model parameters
+model:
+  _target_: gensim.models.doc2vec.Doc2Vec
+  # Choose between "pv-dm" 1 (Paragraph Vector - Distributed Memory) or "pv-dbow" 0 (Paragraph Vector - Distributed Bag of Words)
+  dm: 0
+  vector_size: 300
+  negative: 5
+  window: 5
+  min_count: 1
+  alpha: 0.025
+  epochs: 10
+
+# Training data
+data:
+  # Path to your training corpus (text file or directory)
+  path: 'dataset/processed/'
+  filename:
+    - train.parquet
+    - test.parquet
+  column: review
+  output:
+    path: 'dataset/embeddings/'
+    filename:
+      - train_doc2vec_embeddings.parquet
+      - test_doc2vec_embeddings.parquet
+
+# Logging and output
+logging:
+  # Print training progress every X epochs
+  print_every: 100
+  # Save the trained model to this file
+  save_path: "doc2vec_model.bin"

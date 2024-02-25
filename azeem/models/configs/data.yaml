@@ -1,0 +1,17 @@
+dataset:
+  path: dataset/embeddings/
+  file_name:
+    #- train_bert_embeddings.parquet
+    #- test_bert_embeddings.parquet
+    #- train_doc2vec_embeddings.parquet
+    #- test_doc2vec_embeddings.parquet
+    #- train_word2vec_embeddings.parquet
+    #- test_word2vec_embeddings.parquet
+    - train_fasttext_embeddings.parquet
+    - test_fasttext_embeddings.parquet
+
+labels:
+  path: dataset/processed/label_encoded/
+  file_name:
+    - train_label_encoded.parquet
+    - test_label_encoded.parquet

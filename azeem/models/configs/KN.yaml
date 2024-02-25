@@ -1,0 +1,16 @@
+defaults:
+  - _self_
+  - data
+
+hydra:
+  job:
+    chdir: True
+
+model:
+  _target_: sklearn.neighbors.KNeighborsClassifier
+  n_neighbors: 5
+  weights: 'uniform'
+  algorithm: 'auto'
+  leaf_size: 30
+  p: 2
+  metric: 'minkowski'

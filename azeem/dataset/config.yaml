@@ -1,0 +1,16 @@
+dataset:
+  file_path: 'dataset/processed/'
+  file_name:
+    - train.csv
+    - test.csv
+  columns:
+    - review
+    - sentiment
+  output:
+    path: 'dataset/processed/label_encoded/'
+    file_name:
+      - train_label_encoded.parquet
+      - test_label_encoded.parquet
+
+label_encoder:
+  _target_: sklearn.preprocessing.LabelEncoder
