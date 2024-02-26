@@ -1,0 +1,21 @@
+model:
+  _target_: gensim.models.fasttext.FastText
+  vector_size: 100
+  window: 5
+  min_count: 1
+  workers: 4
+  sg: 1
+  
+
+data:
+  # Path to your training corpus (text file or directory)
+  path: 'dataset/processed/'
+  filename:
+    - train.parquet
+    - test.parquet
+  column: review
+  output:
+    path: 'dataset/embeddings/'
+    filename:
+      - train_fasttext_embeddings.parquet
+      - test_fasttext_embeddings.parquet

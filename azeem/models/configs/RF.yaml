@@ -1,0 +1,18 @@
+defaults:
+  - _self_
+  - data
+
+hydra:
+  job:
+    chdir: True
+
+model:
+  _target_: sklearn.ensemble.RandomForestClassifier
+  n_estimators: 100
+  criterion: 'gini'
+  max_depth: null
+  min_samples_split: 2
+  min_samples_leaf: 1
+  max_features: 'sqrt'
+  bootstrap: true
+  verbose: 1

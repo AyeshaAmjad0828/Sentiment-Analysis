@@ -1,0 +1,21 @@
+model:
+  _target_: gensim.models.word2vec.Word2Vec
+  vector_size: 100  # Dimensionality of the word vectors
+  window: 5          # Maximum distance between the current and predicted word within a sentence
+  min_count: 1       # Ignores all words with a total frequency lower than this
+  workers: 4         # Number of worker threads to train the model
+
+
+# Training data
+data:
+  # Path to your training corpus (text file or directory)
+  path: 'dataset/processed/'
+  filename:
+    - train.parquet
+    - test.parquet
+  column: review
+  output:
+    path: 'dataset/embeddings/'
+    filename:
+      - train_word2vec_embeddings.parquet
+      - test_word2vec_embeddings.parquet
